@@ -9,7 +9,8 @@ module.exports = {
     entry: {
         main: path.resolve(clientSrc, 'main.ts'),
         presentation: path.resolve(clientSrc, 'presentation.ts'),
-        sockettest: path.resolve(clientSrc, 'sockettest.ts')
+        sockettest: path.resolve(clientSrc, 'sockettest.ts'),
+        editor: path.resolve(clientSrc, 'editor.ts')
     },
     module: {
         rules: [
@@ -63,6 +64,11 @@ module.exports = {
             chunks: ['sockettest'],
             template: path.resolve(clientSrc, 'sockettest.html'),
             filename: 'sockettest.html'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['editor'],
+            template: path.resolve(clientSrc, 'editor.html'),
+            filename: 'editor.html'
         }),
     ],
     node: {}

@@ -4,12 +4,14 @@ import $ from 'jquery';
 export default function presenter(wordProjector: WordProjector) {
     const aspectRatio = wordProjector.aspectRatio;
     const $launchPresentation = $('#launchPresentation');
+    const $editSongs = $('#editSongs');
     const $liveFrame = $('#liveFrame');
     const $presenterFrame = $('#presenterFrame');
     const $presenterContents = $('#presenterContents');
     const { activeArticleSelector, topLineClassName } = wordProjector;
 
     let popup: Window | null = null;
+    let editor: Window | null = null;
 
     wordProjector.$wordContents = $presenterContents;
     wordProjector.registerOnSongsChangeUpdateHtml($presenterContents, () => {
@@ -90,6 +92,25 @@ export default function presenter(wordProjector: WordProjector) {
                 };
             }
             $launchPresentation.text('Close Presentation');
+        }
+    });
+
+    $editSongs.click(function () {
+        if (editor) {
+            editor.focus();
+        }
+        else {
+            editor = window.open('editor.html', '_blank');
+            if (editor) {
+                editor.onload = function () {
+                    if (editor) {
+                        editor.onunload = function () {
+                            editor = null;
+                            // $editSongs.text('Launch Presentation');
+                        };
+                    }
+                };
+            }
         }
     });
 }
