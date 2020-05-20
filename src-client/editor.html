@@ -2,31 +2,38 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Word Projector | Song Editor</title>
     <!-- <link rel="stylesheet" href="presentation.css"> -->
     <style>
-        /* body {
-            color: black;
-            font-size: 4em;
+        #factory {
+            display: none;
         }
-        #histogram {
-            margin: 0.5em 0 0.5em 0;
-            padding: 0;
-            border: 4px #eee solid;
-            background-color: #eee;
+
+        .song-item {
+            padding: 0 1em 1em;
         }
-        #histogram li {
-            margin: 0;
-            padding: 0;
-            background-color: #00CC0055;
-            white-space: nowrap;
-        } */
     </style>
 </head>
 
 <body>
     <h1>Oh hello i am editor</h1>
+    <div id="song-list"></div>
+    <div id="factory">
+        <div class="song-item">
+            <form class="song-form pure-form pure-form-stacked">
+                <label>ID
+                    <input type="text" data-prop="id" disabled />
+                </label>
+                <label>Title
+                    <input type="text" data-prop="title" />
+                </label>
+                <label>Majesty Number
+                    <input type="text" data-prop="majestyNumber" />
+                </label>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
